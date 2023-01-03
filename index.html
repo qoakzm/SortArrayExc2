@@ -10,35 +10,34 @@
 <body>
 
 <center>
-	<p id="Arr" style="border:3px solid #000;border-radius: 5px;font-size:42px;color:#AAA">tak</p>
-	<button id="btn" onclick="SortIt(Arr)">SortArr</button>
+	<p id="Arr" style="border:3px solid #000;border-radius: 5px;font-size:42px;color:#AAA"></p>
+	<button id="btn" onclick="SortIt(arr)">SortArr</button>
 </center>
 
 <script>
-var Arr = [5, 7, 9, 1, 4, 2, 3];
-var Arr_sorted = [];
-document.getElementById("Arr").innerHTML = Arr;
+var arr = [5, 7, 9, 1, 4, 2, 3];
+document.getElementById("Arr").innerHTML = arr;
 
 function SortIt(ARR) {
-	var sorted_flag = true;
+	var sortedFlag = true;
 	var holder = 0;
 	
-	for(s in ARR) { s=eval(s); // changed type 's' from string to int
+	for(s in ARR) {
+		s=eval(s); // changed type 's' from string to int
 		if( ARR[s] < ARR[s+1] ) {
 			
 			holder = ARR[s]
 			ARR[s] = ARR[s+1]
 			ARR[s+1] = holder
-			sorted_flag = false // set flag to false if changed
-		} else continue
+			sortedFlag = false // set flag to false if changed
+		}
 	}
 	
 	// sort untill there is no change
-	if( !sorted_flag ) SortIt(ARR)
+	if( !sortedFlag ) SortIt(ARR)
 	
-	// change html and set Arr_sorted
-	Arr_sorted = ARR
-	document.getElementById("Arr").innerHTML = Arr_sorted;
+	// change html
+	document.getElementById("Arr").innerHTML = arr;
 }
 
 
