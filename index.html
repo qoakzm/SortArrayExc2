@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome="1" />
+	<link rel="stylesheet" href="style.css" />
+	<title>SortArrayExc2</title>
+</head>
+<body>
+
+<center>
+	<p id="Arr" style="border:3px solid #000;border-radius: 5px;font-size:42px;color:#AAA">tak</p>
+	<button id="btn" onclick="SortIt(Arr)">SortArr</button>
+</center>
+
+<script>
+var Arr = [5, 7, 9, 1, 4, 2, 3];
+var Arr_sorted = [];
+document.getElementById("Arr").innerHTML = Arr;
+
+function SortIt(ARR) {
+	var sorted_flag = true;
+	var holder = 0;
+	
+	for(s in ARR) { s=eval(s); // changed type 's' from string to int
+		if( ARR[s] < ARR[s+1] ) {
+			
+			holder = ARR[s]
+			ARR[s] = ARR[s+1]
+			ARR[s+1] = holder
+			sorted_flag = false // set flag to false if changed
+		} else continue
+	}
+	
+	// sort untill there is no change
+	if( !sorted_flag ) SortIt(ARR)
+	
+	// change html and set Arr_sorted
+	Arr_sorted = ARR
+	document.getElementById("Arr").innerHTML = Arr_sorted;
+}
+
+
+</script>
+</body>
+</html>
