@@ -22,13 +22,12 @@ function SortIt(ARR) {
 	var sortedFlag = true;
 	var holder = 0;
 	
-	for(s in ARR) {
-		s=eval(s); // changed type 's' from string to int
-		if( ARR[s] < ARR[s+1] ) {
+	for(let i=0; i<=ARR.length; i++) {
+		if( ARR[i] < ARR[i+1] ) {
 			
-			holder = ARR[s]
-			ARR[s] = ARR[s+1]
-			ARR[s+1] = holder
+			holder = ARR[i]
+			ARR[i] = ARR[i+1]
+			ARR[i+1] = holder
 			sortedFlag = false // set flag to false if changed
 		}
 	}
